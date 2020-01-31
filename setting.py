@@ -1,0 +1,20 @@
+
+TITLE = "Basic Platformer"
+WIDTH = 640
+HEIGHT = 480
+FPS = 60
+
+
+#player properties
+MODEL_RATIO = (30, 40)
+PLAYER_ACC = 0.5
+PLAYER_FRICTION = -0.12
+PLAYER_GRAVITY = 2.5
+PLAYER_JUMP = -30
+
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
+YELLOW = (255, 255, 0)
