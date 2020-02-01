@@ -49,6 +49,23 @@ class Game:
                 self.player.vel.y = 0
                 self.player.rect.midbottom = self.player.pos
 
+        if self.player.rect.top <= HEIGHT / 4:
+            self.player.pos.y += abs(self.player.vel.y)
+            for platform in self.platforms:
+                platform.rect.y += abs(self.player.vel.y)
+                if platform.rect.top >= HEIGHT:
+                    platform.kill()
+
+        if self.player.rect.bottom > HEIGHT:
+            for sprite in self.all_sprites:
+                sprite.rect.y -= max(self.player.vel.y, 10)
+            self.playing = False
+
+        while len(self.platforms) < 6:
+            width = random.randrange(100, 200)
+            p = Platform(random.randrange(0, WIDTH-width), random.randrange(-30, -25), width, 20)
+            self.platforms.add(p)
+            self.all_sprites.add(p)
 
     def events(self):
         #game loop - events
